@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import Cosmos
 
 class PopularMovieDetailView: BaseView {
     
@@ -30,8 +31,20 @@ class PopularMovieDetailView: BaseView {
         return label
     }()
     
+    let cosmosView: CosmosView = {
+        let view = CosmosView.init()
+        view.settings.updateOnTouch = false
+        view.settings.fillMode = .full
+        view.settings.starSize = 20
+        view.settings.starMargin = 5
+        view.settings.filledColor = UIColor.orange
+        view.settings.emptyBorderColor = UIColor.orange
+        view.settings.filledBorderColor = UIColor.orange
+        return view
+    }()
+    
     private lazy var verticalStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [posterImage,titleLabel,overViewLabel])
+        let stackView = UIStackView(arrangedSubviews: [posterImage,titleLabel,cosmosView,overViewLabel])
         stackView.spacing = 10
         stackView.alignment = .fill
         stackView.distribution = .fill

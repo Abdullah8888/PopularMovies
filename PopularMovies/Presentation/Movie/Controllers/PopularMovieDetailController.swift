@@ -42,5 +42,10 @@ final class PopularMovieDetailController: BaseController<PopularMovieDetailView>
         _view.titleLabel.text = popularMovieDetails.title ?? "Not Found"
         _view.overViewLabel.text = popularMovieDetails.overview ?? "Not Found"
         _view.posterImage.showImage(url: .posterHost + (popularMovieDetails.posterPath ?? ""))
+        guard let rating = popularMovieDetails.voteAverage else {
+            _view.cosmosView.rating = 0
+            return
+        }
+        _view.cosmosView.rating = rating > 8.0 ? rating : 0
     }
 }

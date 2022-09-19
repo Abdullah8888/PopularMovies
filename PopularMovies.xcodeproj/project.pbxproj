@@ -12,6 +12,8 @@
 		B8141C5C28D7D24D00A81EE0 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8141C5B28D7D24D00A81EE0 /* String+Extension.swift */; };
 		B8141C6028D7D73D00A81EE0 /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8141C5F28D7D73D00A81EE0 /* ShadowView.swift */; };
 		B8141C6228D7E1B300A81EE0 /* MovieFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8141C6128D7E1B300A81EE0 /* MovieFlowLayout.swift */; };
+		B884C46E28D86A0900E006F8 /* PopularMovieDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = B884C46D28D86A0900E006F8 /* PopularMovieDetails.swift */; };
+		B884C47128D8855300E006F8 /* Cosmos in Frameworks */ = {isa = PBXBuildFile; productRef = B884C47028D8855300E006F8 /* Cosmos */; };
 		B888172628D5F42300AB4D9A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B888172528D5F42300AB4D9A /* AppDelegate.swift */; };
 		B888172F28D5F42500AB4D9A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B888172E28D5F42500AB4D9A /* Assets.xcassets */; };
 		B888173228D5F42500AB4D9A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B888173028D5F42500AB4D9A /* LaunchScreen.storyboard */; };
@@ -72,6 +74,7 @@
 		B8141C5B28D7D24D00A81EE0 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		B8141C5F28D7D73D00A81EE0 /* ShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
 		B8141C6128D7E1B300A81EE0 /* MovieFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieFlowLayout.swift; sourceTree = "<group>"; };
+		B884C46D28D86A0900E006F8 /* PopularMovieDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularMovieDetails.swift; sourceTree = "<group>"; };
 		B888172228D5F42300AB4D9A /* PopularMovies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PopularMovies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B888172528D5F42300AB4D9A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B888172E28D5F42500AB4D9A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -118,6 +121,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B884C47128D8855300E006F8 /* Cosmos in Frameworks */,
 				B8141C5828D7BC7E00A81EE0 /* RxSwift in Frameworks */,
 				B888175728D5F4C400AB4D9A /* SDWebImage in Frameworks */,
 			);
@@ -288,6 +292,7 @@
 			isa = PBXGroup;
 			children = (
 				B88817B928D60FCC00AB4D9A /* PopularMovie.swift */,
+				B884C46D28D86A0900E006F8 /* PopularMovieDetails.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -400,6 +405,7 @@
 			packageProductDependencies = (
 				B888175628D5F4C400AB4D9A /* SDWebImage */,
 				B8141C5728D7BC7E00A81EE0 /* RxSwift */,
+				B884C47028D8855300E006F8 /* Cosmos */,
 			);
 			productName = PopularMovies;
 			productReference = B888172228D5F42300AB4D9A /* PopularMovies.app */;
@@ -476,6 +482,7 @@
 			packageReferences = (
 				B888175528D5F4C400AB4D9A /* XCRemoteSwiftPackageReference "SDWebImage" */,
 				B8141C5628D7BC7E00A81EE0 /* XCRemoteSwiftPackageReference "RxSwift" */,
+				B884C46F28D8855300E006F8 /* XCRemoteSwiftPackageReference "Cosmos" */,
 			);
 			productRefGroup = B888172328D5F42300AB4D9A /* Products */;
 			projectDirPath = "";
@@ -544,6 +551,7 @@
 				B88817EB28D613E400AB4D9A /* UIColor+Extension.swift in Sources */,
 				B88817FE28D614A500AB4D9A /* ControllerFactory.swift in Sources */,
 				B888181128D615C400AB4D9A /* Constant.swift in Sources */,
+				B884C46E28D86A0900E006F8 /* PopularMovieDetails.swift in Sources */,
 				B888182328D62BBE00AB4D9A /* MovieFlowCoordinator.swift in Sources */,
 				B888181928D6168C00AB4D9A /* AppConfiguration.swift in Sources */,
 				B888181B28D6169C00AB4D9A /* ApFlowCoordinator.swift in Sources */,
@@ -898,6 +906,14 @@
 				version = 6.5.0;
 			};
 		};
+		B884C46F28D8855300E006F8 /* XCRemoteSwiftPackageReference "Cosmos" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/evgenyneu/Cosmos.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		B888175528D5F4C400AB4D9A /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
@@ -913,6 +929,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = B8141C5628D7BC7E00A81EE0 /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxSwift;
+		};
+		B884C47028D8855300E006F8 /* Cosmos */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B884C46F28D8855300E006F8 /* XCRemoteSwiftPackageReference "Cosmos" */;
+			productName = Cosmos;
 		};
 		B888175628D5F4C400AB4D9A /* SDWebImage */ = {
 			isa = XCSwiftPackageProductDependency;

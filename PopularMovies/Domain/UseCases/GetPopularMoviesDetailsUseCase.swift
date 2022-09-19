@@ -8,7 +8,7 @@
 import Foundation
 
 protocol GetPopularMoviesDetailsUseCaseProtocol: AnyObject {
-    func getMoviesDetails(movieId: String, completion: @escaping (Result<MovieResponse, ErrorModel>) -> Void)
+    func getMoviesDetails(movieId: String, completion: @escaping (Result<PopularMovieDetailsResponse, ErrorModel>) -> Void)
 }
 
 final class GetPopularMoviesDetailsUseCase: GetPopularMoviesDetailsUseCaseProtocol {
@@ -19,7 +19,7 @@ final class GetPopularMoviesDetailsUseCase: GetPopularMoviesDetailsUseCaseProtoc
         self.movieRepository = movieRepository
     }
     
-    func getMoviesDetails(movieId: String, completion: @escaping (Result<MovieResponse, ErrorModel>) -> Void) {
+    func getMoviesDetails(movieId: String, completion: @escaping (Result<PopularMovieDetailsResponse, ErrorModel>) -> Void) {
         movieRepository.getMoviesDetails(movieId: movieId, completion: completion)
     }
 }

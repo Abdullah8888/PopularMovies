@@ -10,7 +10,7 @@ import UIKit
 
 extension UICollectionView {
     
-    func showEmptyViewWith(text: String, textColor: UIColor) {
+    func showEmptyViewWith(text: String, textColor: UIColor = .black) {
         let emptyView: UIView = {
             let view = UIView(frame: CGRect(x: self.center.x, y: self.center.y, width: self.bounds.size.width, height: self.bounds.size.height))
             view.backgroundColor = .darkGray

@@ -1,28 +1,25 @@
 //
-//  PopularMovie.swift
+//  PopularMovieDetails.swift
 //  PopularMovies
 //
-//  Created by Abdullah on 17/09/2022.
+//  Created by Abdullah on 19/09/2022.
 //
 
 import Foundation
 
-// MARK: - MovieRespose
-struct MovieResponse: Codable {
-    let results: [Movie]?
-}
-
-// MARK: - MovieResult
-struct Movie: Codable {
+// MARK: - PopularMovieDetails
+struct PopularMovieDetailsResponse: Codable {
+    let homepage: String
     let id: Int?
-    //let originalLanguage, originalTitle, overview: String?
+    let overview: String?
     let popularity: Double?
-    let posterPath, overview, title: String?
+    let posterPath: String?
+    let title: String?
     let voteAverage: Double?
     let voteCount: Int?
 
     enum CodingKeys: String, CodingKey {
-        case id
+        case homepage, id
         case overview, popularity
         case posterPath = "poster_path"
         case title

@@ -6,12 +6,26 @@
 //
 
 import Foundation
+import RxSwift
 
 final class PopularMovieViewModel {
     
     private let getPopularMoviesUseCase: GetPopularMoviesUseCaseProtocol
+    var movieResponse: PublishSubject<MovieResponse> = PublishSubject<MovieResponse>()
+    var errorHandler: PublishSubject<ErrorModel> = PublishSubject<ErrorModel>()
     
     init(getPopularMoviesUseCase: GetPopularMoviesUseCaseProtocol) {
         self.getPopularMoviesUseCase = getPopularMoviesUseCase
+    }
+    
+    func getMovies() {
+        getPopularMoviesUseCase.getMovies { result in
+            switch result {
+            case .success(let res):
+                self.movieResponse.onNext(res)
+            case .failure(let err):
+                self.errorHandler.onNext(err)
+            }
+        }
     }
 }

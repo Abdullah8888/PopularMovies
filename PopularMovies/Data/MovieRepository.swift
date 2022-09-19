@@ -8,10 +8,10 @@
 import Foundation
 protocol MovieRepositoryProtocol {
     func getMovies(completion: @escaping (Result<MovieResponse, ErrorModel>) -> Void)
-    func getMoviesDetails(movieId: String, completion: @escaping (Result<MovieResponse, ErrorModel>) -> Void)
+    func getMoviesDetails(movieId: String, completion: @escaping (Result<PopularMovieDetailsResponse, ErrorModel>) -> Void)
 }
 
-final class MovieRepository: MovieRepositoryProtocol{
+final class MovieRepository: MovieRepositoryProtocol {
     
     private let remoteService: RemoteServiceProtocol
     
@@ -30,8 +30,8 @@ final class MovieRepository: MovieRepositoryProtocol{
         }
     }
     
-    func getMoviesDetails(movieId: String, completion: @escaping (Result<MovieResponse, ErrorModel>) -> Void) {
-        remoteService.fetch(pathUrl: .popularMoviesPathUrl + movieId, type: MovieResponse.self) { result in
+    func getMoviesDetails(movieId: String, completion: @escaping (Result<PopularMovieDetailsResponse, ErrorModel>) -> Void) {
+        remoteService.fetch(pathUrl: .popularMoviesPathUrl + movieId, type: PopularMovieDetailsResponse.self) { result in
             switch result {
             case .success(let res):
                 completion(.success(res))

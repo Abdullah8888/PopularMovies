@@ -16,13 +16,12 @@ class ShadowView: UIView {
     }
 
     private func setupShadow() {
-        print("self.bounds, is \(self.bounds)")
-        self.layer.cornerRadius = 13
+        self.layer.cornerRadius = 7
         self.layer.shadowOffset = CGSize(width: 0, height: 0)
-        self.layer.shadowRadius = 3
+        self.layer.shadowRadius = 4
         self.layer.shadowOpacity = 0.2
         self.layer.shadowColor = UIColor.white.cgColor
-        self.layer.shadowPath = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: .allCorners, cornerRadii: CGSize(width: 13, height: 13)).cgPath
+        self.layer.shadowPath = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: .allCorners, cornerRadii: CGSize(width: 7, height: 7)).cgPath
         self.layer.shouldRasterize = true
         self.layer.rasterizationScale = UIScreen.main.scale
     }

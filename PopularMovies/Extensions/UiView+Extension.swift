@@ -59,3 +59,65 @@ extension UIView {
     }
 }
 
+extension UIView {
+
+    func onClick(completion: (() -> Void)? = nil) {
+        addTapGesture {
+            completion?()
+        }
+    }
+    
+    func onRightSwipe(completion: (() -> Void)? = nil) {
+        addSwipeGesture(action: {
+            completion?()
+        }, .right)
+    }
+    
+    func onLeftSwipe(completion: (() -> Void)? = nil) {
+        addSwipeGesture(action: {
+            completion?()
+        }, .left)
+    }
+    
+    func addSwipeGesture(action: @escaping () -> Void, _ direction: UISwipeGestureRecognizer.Direction){
+        let swipe = BindableSwipeGestureRecognizer(action: action, direction: direction)
+        self.addGestureRecognizer(swipe)
+    }
+    
+    func addTapGesture(action: @escaping () -> Void ){
+        let tap = BindableGestureRecognizer(action: action)
+        tap.numberOfTapsRequired = 1
+        self.addGestureRecognizer(tap)
+        self.isUserInteractionEnabled = true
+    }
+}
+
+final class BindableGestureRecognizer: UITapGestureRecognizer {
+    private var action: () -> Void
+
+    init(action: @escaping () -> Void) {
+        self.action = action
+        super.init(target: nil, action: nil)
+        self.addTarget(self, action: #selector(execute))
+    }
+
+    @objc private func execute() {
+        action()
+    }
+}
+
+
+final class BindableSwipeGestureRecognizer: UISwipeGestureRecognizer {
+    private var action: () -> Void
+
+    init(action: @escaping () -> Void,  direction: UISwipeGestureRecognizer.Direction) {
+        self.action = action
+        super.init(target: nil, action: nil)
+        self.direction = direction
+        self.addTarget(self, action: #selector(execute))
+    }
+
+    @objc private func execute() {
+        action()
+    }
+}

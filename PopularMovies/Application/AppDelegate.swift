@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,7 +17,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         appFlowCoordinator = AppFlowCoordinator(window: window, appDependencies: AppDependencies())
         appFlowCoordinator?.start()
-        
         return true
     }
 

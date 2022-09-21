@@ -14,7 +14,7 @@ class PopularMovieView: BaseView {
     let movieCell = String(describing: MovieCell.self)
     lazy var movieCollectionView: UICollectionView = {
         //let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        let layout: MovieFlowLayout2 = MovieFlowLayout2()
+        let layout: MovieFlowLayout = MovieFlowLayout()
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.register(MovieCell.self, forCellWithReuseIdentifier: movieCell)
         collectionView.delegate = self
@@ -74,7 +74,7 @@ extension PopularMovieView: UICollectionViewDelegate, UICollectionViewDataSource
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let movieId = movies?[indexPath.row].id else {return}
-        movieFlowCoordinator?.showMovieDetails(movieId: movieId)
+        movieFlowCoordinator?.showMovieDetails(movieId: Int(movieId))
     }
     
     func calcLabelHeight(text:String , cellWidth : CGFloat, textFont: UIFont = .helveticaNeueBold(size: 17), numberOfLines: Int = 0, lineBreakMode: NSLineBreakMode = .byWordWrapping) -> CGFloat {

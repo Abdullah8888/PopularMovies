@@ -22,6 +22,7 @@ final class PopularMovieViewModel {
         getPopularMoviesUseCase.getMovies { result in
             switch result {
             case .success(let res):
+                print("the res is \(res.results)")
                 self.movieResponse.onNext(res)
             case .failure(let err):
                 self.errorHandler.onNext(err)
